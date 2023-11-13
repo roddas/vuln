@@ -1,0 +1,15 @@
+version: '3.1'
+networks:
+  xss_net:
+services:
+  vuln_database:
+    container_name: vuln_database
+    image:  postgres:14
+    ports:
+      - 5432:5432
+    networks:
+      - xss_net
+    environment:
+      - POSTGRES_USER=vuln_user 
+      - POSTGRES_DB=vuln_db
+      - POSTGRES_PASSWORD=vuln_pass
